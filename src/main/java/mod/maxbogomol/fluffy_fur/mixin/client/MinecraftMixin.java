@@ -1,6 +1,5 @@
 package mod.maxbogomol.fluffy_fur.mixin.client;
 
-import mod.maxbogomol.fluffy_fur.FluffyFurClient;
 import mod.maxbogomol.fluffy_fur.client.sound.MusicHandler;
 import mod.maxbogomol.fluffy_fur.client.sound.MusicModifier;
 import net.minecraft.client.Minecraft;
@@ -60,13 +59,6 @@ public abstract class MinecraftMixin {
 
         if (possibleMusic.size() > 0) {
             cir.setReturnValue(possibleMusic.get(fluffy_fur$random.nextInt(0, possibleMusic.size())));
-        }
-    }
-
-    @Inject(at = @At("RETURN"), method = "isDemo", cancellable = true)
-    public void fluffy_fur$isDemo(CallbackInfoReturnable<Boolean> cir) {
-        if (FluffyFurClient.optifinePresent) {
-            cir.setReturnValue(true);
         }
     }
 

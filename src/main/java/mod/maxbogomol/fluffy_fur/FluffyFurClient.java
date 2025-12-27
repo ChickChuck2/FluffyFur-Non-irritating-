@@ -19,7 +19,6 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -27,9 +26,6 @@ import java.awt.*;
 import java.util.List;
 
 public class FluffyFurClient {
-
-    public static boolean optifinePresent = false;
-    public static boolean piracyPresent = false;
 
     public static class ClientOnly {
         public static void clientInit() {
@@ -48,17 +44,6 @@ public class FluffyFurClient {
     }
 
     public static void clientSetup(final FMLClientSetupEvent event) {
-        try {
-            Class.forName("net.optifine.Config");
-            optifinePresent = true;
-        } catch (ClassNotFoundException e) {
-            optifinePresent = false;
-        }
-        piracyPresent = ModList.get().isLoaded("tlskincape");
-
-        if (optifinePresent) FluffyFur.LOGGER.error("OptiFine detected!!!");
-        if (piracyPresent) FluffyFur.LOGGER.error("Piracy detected!!!");
-
         setupMenu();
         setupSplashes();
         setupLanguages();

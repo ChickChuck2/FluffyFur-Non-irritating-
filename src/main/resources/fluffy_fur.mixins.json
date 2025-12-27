@@ -42,7 +42,6 @@
     "client.RenderStateShardMixin",
     "client.ShareToLanScreenMixin",
     "client.SplashManagerMixin",
-    "client.TitleScreenMixin",
     "client.curios.CurioTooltipMixin"
   ],
   "minVersion": "0.8",
